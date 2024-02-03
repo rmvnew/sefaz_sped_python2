@@ -1,0 +1,41 @@
+# Arquivos de compilação Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos locais
+*.sqlite3
+
+# Ambiente virtual
+venv/
+myvenv/
+env/
+old/
+img/
+
+
+# Logs e arquivos temporários
+*.log
+*.swp
+*.tmp
+
+# Arquivos de configuração
+*.ini
+*.cfg
+
+# Ambiente de desenvolvimento
+.vscode/
+.idea/
+
+# Dependências instaladas pelo pip
+/.venv/
+/pip-selfcheck.json
+
+# Arquivos de compilação
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivo de ambiente
+.env
