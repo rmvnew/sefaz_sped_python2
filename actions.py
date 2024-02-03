@@ -1,8 +1,14 @@
 from image_recognition import find_image_on_screen
 from mouse_control import click_on_location
-from screen_capture import get_screenshot
+import tkinter as tk
+from tkinter import filedialog
+import pandas as pd
+from products import Product
 
 import time
+
+
+product_list = []
 
 def execute_click_sequence():
     paths = [
@@ -36,7 +42,31 @@ def execute_click_sequence():
 
 
 def buscar_arquivo_excel():
-    print("A função para buscar o arquivo Excel ainda não foi implementada.")
+    
+    root = tk.Tk()
+    root.withdraw()  # Fecha a janela principal
+
+    # Abre a janela de seleção de arquivo
+    file_path = filedialog.askopenfilename(filetypes=[("Arquivos Excel", "*.xlsx;*.xls")])
+
+    # Verifica se um arquivo foi selecionado
+    if file_path:
+        # Carrega o arquivo Excel em um DataFrame pandas
+        excel_data = pd.read_excel(file_path,skiprows=1)
+
+        select_colunms = excel_data[['CÓDIGO','DESCRIÇÃO','QUANTIDADE']] 
+
+        
+
+        for index,row in select_colunms.iterrows():
+            product = Product(index,row['CÓDIGO'],row['DESCRIÇÃO'],row['QUANTIDADE'])
+            product_list.append(product)
+
+        
+def read_data():
+
+     for product in product_list:
+            print(product)       
 
 
 def buscar_cadastrar_produtos():

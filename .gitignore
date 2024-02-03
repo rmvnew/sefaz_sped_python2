@@ -13,6 +13,7 @@ myvenv/
 env/
 old/
 img/
+data/
 
 
 # Logs e arquivos temporários
